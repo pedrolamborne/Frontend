@@ -8,7 +8,7 @@ export default function Register({ setUser }) {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post('https://SEU_BACKEND_URL/api/auth/register', { name, email, password });
+      const res = await axios.post('https://lambo-chat.vercel.app/api/auth/register', { name, email, password });
       localStorage.setItem('token', res.data.token);
       setUser(res.data.user);
     } catch (err) {
