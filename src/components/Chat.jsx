@@ -7,7 +7,7 @@ export default function Chat({ user }) {
   const [file, setFile] = useState(null);
 
   const fetchMessages = async () => {
-    const res = await axios.get('https://SEU_BACKEND_URL/api/messages', {
+    const res = await axios.get('https://lambo-chat.vercel.app//api/messages', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
     setMessages(res.data);
@@ -26,7 +26,7 @@ export default function Chat({ user }) {
     formData.append('to', 'all');
     if (file) formData.append('image', file);
 
-    await axios.post('https://SEU_BACKEND_URL/api/messages', formData, {
+    await axios.post('https://lambo-chat.vercel.app//api/messages', formData, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
     setText('');
