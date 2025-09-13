@@ -5,7 +5,7 @@ export default function AdminPanel({ user }) {
   const [users, setUsers] = useState([]);
 
   const fetchUsers = async () => {
-    const res = await axios.get('https://SEU_BACKEND_URL/api/users', {
+    const res = await axios.get('https://lambo-chat.vercel.app/api/users', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
     setUsers(res.data);
@@ -13,7 +13,7 @@ export default function AdminPanel({ user }) {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Deseja realmente excluir este usuário?')) return;
-    await axios.delete(`https://SEU_BACKEND_URL/api/users/${id}`, {
+    await axios.delete(`https://lambo-chat.vercel.app/api/users/${id}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
     fetchUsers();
